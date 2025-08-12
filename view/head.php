@@ -12,7 +12,9 @@
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="assets/css/colors/blue.css" id="theme" rel="stylesheet">
+    <link href="assets/css/colors/corporate.css" id="theme" rel="stylesheet">
+    <!-- Corporate improvements CSS -->
+    <link href="assets/css/corporate-improvements.css" rel="stylesheet">
 	<link rel="icon" href="assets/images/cart_icon2.png">
 	 <!--alerts CSS -->
     <link href="assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">

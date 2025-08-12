@@ -1,0 +1,544 @@
+/*
+Sistema de Cotizaciones VTC - Tema Corporativo Profesional
+Paleta de colores moderna y seria para uso empresarial
+*/
+
+/*==========================================
+PALETA DE COLORES CORPORATIVA PROFESIONAL
+==========================================*/
+
+:root {
+    /* Colores principales - Azul corporativo y grises */
+    --primary-color: #1e3a8a;          /* Azul corporativo profundo */
+    --primary-light: #3b82f6;          /* Azul corporativo claro */
+    --primary-dark: #1e40af;           /* Azul corporativo oscuro */
+    
+    /* Colores secundarios */
+    --secondary-color: #64748b;        /* Gris azulado */
+    --secondary-light: #94a3b8;        /* Gris azulado claro */
+    --secondary-dark: #475569;         /* Gris azulado oscuro */
+    
+    /* Colores de estado profesionales */
+    --success-color: #059669;          /* Verde corporativo */
+    --success-light: #10b981;          /* Verde claro */
+    --warning-color: #d97706;          /* Naranja corporativo */
+    --warning-light: #f59e0b;          /* Naranja claro */
+    --danger-color: #dc2626;           /* Rojo corporativo */
+    --danger-light: #ef4444;           /* Rojo claro */
+    --info-color: #0891b2;             /* Cyan corporativo */
+    --info-light: #06b6d4;             /* Cyan claro */
+    
+    /* Colores neutros profesionales */
+    --white: #ffffff;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    
+    /* Gradientes corporativos */
+    --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    --gradient-secondary: linear-gradient(135deg, #64748b 0%, #94a3b8 100%);
+    --gradient-success: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    --gradient-background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    
+    /* Sombras profesionales */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/*==========================================
+TOPBAR - HEADER CORPORATIVO
+==========================================*/
+.topbar {
+    background: var(--gradient-primary) !important;
+    box-shadow: var(--shadow-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
+    display: none;
+}
+
+.topbar .top-navbar .navbar-header .navbar-brand .light-logo {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.topbar .navbar-light .navbar-nav .nav-item > a.nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.topbar .navbar-light .navbar-nav .nav-item > a.nav-link:hover,
+.topbar .navbar-light .navbar-nav .nav-item > a.nav-link:focus {
+    color: var(--white) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+}
+
+/*==========================================
+SIDEBAR - NAVEGACIÓN LATERAL
+==========================================*/
+.left-sidebar {
+    background: var(--white) !important;
+    border-right: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-md);
+}
+
+.sidebar-nav ul li a {
+    color: var(--gray-700) !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 2px 8px;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: var(--gray-100) !important;
+    color: var(--primary-color) !important;
+}
+
+.sidebar-nav ul li a.active {
+    background: var(--gradient-primary) !important;
+    color: var(--white) !important;
+    box-shadow: var(--shadow-sm);
+}
+
+.sidebar-nav ul li a i {
+    color: var(--gray-500);
+    transition: all 0.3s ease;
+}
+
+.sidebar-nav ul li a:hover i,
+.sidebar-nav ul li a.active i {
+    color: inherit;
+}
+
+/*==========================================
+ELEMENTOS GENERALES
+==========================================*/
+body {
+    background: var(--gray-50) !important;
+    color: var(--gray-700) !important;
+}
+
+a {
+    color: var(--primary-color) !important;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-light) !important;
+}
+
+.bg-theme {
+    background: var(--gradient-primary) !important;
+}
+
+.text-themecolor {
+    color: var(--primary-color) !important;
+}
+
+/*==========================================
+CARDS Y CONTENEDORES
+==========================================*/
+.card {
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    background: var(--gray-50) !important;
+    border-bottom: 1px solid var(--gray-200);
+    color: var(--gray-800);
+    font-weight: 600;
+}
+
+/*==========================================
+BOTONES CORPORATIVOS
+==========================================*/
+.btn-primary {
+    background: var(--gradient-primary) !important;
+    border: none !important;
+    color: var(--white) !important;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark) !important;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background: var(--gradient-success) !important;
+    border: none !important;
+    color: var(--white) !important;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-success:hover {
+    background: var(--success-color) !important;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.btn-warning {
+    background: var(--warning-color) !important;
+    border: none !important;
+    color: var(--white) !important;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-warning:hover {
+    background: var(--warning-light) !important;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background: var(--danger-color) !important;
+    border: none !important;
+    color: var(--white) !important;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-danger:hover {
+    background: var(--danger-light) !important;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.btn-info {
+    background: var(--info-color) !important;
+    border: none !important;
+    color: var(--white) !important;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-info:hover {
+    background: var(--info-light) !important;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.btn-light {
+    background: var(--white) !important;
+    border: 1px solid var(--gray-300) !important;
+    color: var(--gray-700) !important;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-light:hover {
+    background: var(--gray-50) !important;
+    border-color: var(--gray-400) !important;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+/*==========================================
+TABLAS PROFESIONALES
+==========================================*/
+.table {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.table thead th {
+    background: var(--gray-50) !important;
+    color: var(--gray-800) !important;
+    font-weight: 600;
+    border-bottom: 2px solid var(--gray-200);
+    padding: 1rem;
+}
+
+.table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background-color: var(--gray-50) !important;
+    border-left: 4px solid var(--primary-color) !important;
+}
+
+/*==========================================
+FORMULARIOS PROFESIONALES
+==========================================*/
+.form-control {
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1) !important;
+    background: var(--white);
+}
+
+.form-group label {
+    color: var(--gray-700);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/*==========================================
+PAGINACIÓN
+==========================================*/
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    background: var(--gradient-primary) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--white) !important;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    color: var(--gray-600) !important;
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    margin: 0 2px;
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover {
+    background-color: var(--gray-100) !important;
+    border-color: var(--gray-400) !important;
+    color: var(--primary-color) !important;
+}
+
+/*==========================================
+ALERTAS PROFESIONALES
+==========================================*/
+.alert {
+    border-radius: 10px;
+    border: none;
+    box-shadow: var(--shadow-sm);
+    font-weight: 500;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+    color: var(--success-color);
+    border-left: 4px solid var(--success-color);
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+    color: var(--warning-color);
+    border-left: 4px solid var(--warning-color);
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+    color: var(--danger-color);
+    border-left: 4px solid var(--danger-color);
+}
+
+.alert-info {
+    background: linear-gradient(135deg, rgba(8, 145, 178, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+    color: var(--info-color);
+    border-left: 4px solid var(--info-color);
+}
+
+/*==========================================
+BREADCRUMBS
+==========================================*/
+.breadcrumb {
+    background: transparent !important;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb-item {
+    color: var(--gray-600);
+    font-weight: 500;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: var(--gray-400);
+}
+
+.breadcrumb-item a {
+    color: var(--primary-color) !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--primary-light) !important;
+}
+
+.breadcrumb-item.active {
+    color: var(--gray-700);
+}
+
+/*==========================================
+PAGE TITLES
+==========================================*/
+.page-titles {
+    background: var(--white) !important;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+}
+
+.page-titles h3 {
+    color: var(--gray-800) !important;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/*==========================================
+FOOTER
+==========================================*/
+.footer {
+    background: var(--white) !important;
+    border-top: 1px solid var(--gray-200);
+    color: var(--gray-600);
+    padding: 1rem 0;
+}
+
+/*==========================================
+MODALES PROFESIONALES
+==========================================*/
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: var(--shadow-xl);
+}
+
+.modal-header {
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--gray-200);
+    border-radius: 12px 12px 0 0;
+}
+
+.modal-title {
+    color: var(--gray-800);
+    font-weight: 600;
+}
+
+.modal-footer {
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+    border-radius: 0 0 12px 12px;
+}
+
+/*==========================================
+DROPDOWN MENUS
+==========================================*/
+.dropdown-menu {
+    border-radius: 10px;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-lg);
+    padding: 0.5rem 0;
+}
+
+.dropdown-item {
+    color: var(--gray-700);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--gray-100);
+    color: var(--primary-color);
+}
+
+/*==========================================
+RESPONSIVE IMPROVEMENTS
+==========================================*/
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .page-titles {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .btn {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/*==========================================
+ANIMACIONES SUAVES
+==========================================*/
+* {
+    transition: all 0.3s ease;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/*==========================================
+UTILIDADES ADICIONALES
+==========================================*/
+.text-corporate {
+    color: var(--primary-color) !important;
+}
+
+.bg-corporate {
+    background: var(--gradient-primary) !important;
+    color: var(--white) !important;
+}
+
+.border-corporate {
+    border-color: var(--primary-color) !important;
+}
+
+.shadow-corporate {
+    box-shadow: var(--shadow-md) !important;
+}
