@@ -1,0 +1,39 @@
+# Archivos de configuración sensibles
+config/db.php
+
+# Archivos de sesión y temporales
+*.tmp
+*.log
+*.cache
+
+# Directorios de uploads y archivos generados
+uploads/
+temp/
+cache/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Archivos de backup
+*.bak
+*.backup
+*~
+
+# Archivos de PHP
+*.php~
+
+# Logs de Apache/PHP
+error.log
+access.log
+
+# Archivos de test
+test_extensions.php
+phpinfo.php
