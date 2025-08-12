@@ -115,22 +115,25 @@
 				$decimal_separator=$rw_empresa["decimal_separator"];
 			/*Fin datos empresa*/
 			?>
-			<div class="table-responsive">
-			  <table class="table">
-				<tr  class="warning">
-					<th>Código</th>
-					<th>Modelo</th>
-					<th>Producto</th>
-					<th>Fabricante</th>
-					<th>Estado</th>
-					<th>Agregado</th>
-					<th><span class='pull-right'>Precio</span></th>
-					<?php 
-						if ($permisos_editar==1 or $permisos_eliminar==1){
-					?>
-					<th class='text-right'>Acciones</th>
-					<?php  }?>
-				</tr>
+			<div class="table-responsive productos-table">
+			  <table class="table table-hover table-wide">
+				<thead>
+					<tr>
+						<th class="col-codigo">CÓDIGO</th>
+						<th class="col-modelo">MODELO</th>
+						<th class="col-producto">PRODUCTO</th>
+						<th class="col-fabricante">FABRICANTE</th>
+						<th class="col-estado">ESTADO</th>
+						<th class="col-fecha">AGREGADO</th>
+						<th class="col-precio">PRECIO</th>
+						<?php 
+							if ($permisos_editar==1 or $permisos_eliminar==1){
+						?>
+						<th class="col-acciones">ACCIONES</th>
+						<?php  }?>
+					</tr>
+				</thead>
+				<tbody>
 				<?php
 				while ($row=mysqli_fetch_array($query)){
 						$id_producto=$row['id_producto'];
@@ -161,35 +164,65 @@
 					<input type="hidden" value="<?php echo number_format($precio_producto,2,'.','');?>" id="precio_producto<?php echo $id_producto;?>">
 					<span id="descripcion<?php echo $id_producto;?>" style="display:none"><?php echo $nombre_producto;?><span>
 					<tr>
-						<td><?php echo $codigo_producto; ?></td>
-						<td ><?php echo $modelo_producto; ?></td>
-						<td ><?php echo $nombre_producto; ?></td>
-						<td><?php echo $fabricante;?></td>
-						<td><?php echo $estado;?></td>
-						<td><?php echo $date_added;?></td>
-						<td><?php echo $moneda;?><span class='pull-right'><?php echo number_format($precio_producto,$decimals,$decimal_separator,$thousand_separator);?></span></td>
+						<td class="col-codigo">
+							<span class="fw-bold text-corporate-primary"><?php echo $codigo_producto; ?></span>
+						</td>
+						<td class="col-modelo">
+							<span class="text-dark"><?php echo $modelo_producto; ?></span>
+						</td>
+						<td class="col-producto">
+							<span class="fw-bold text-dark"><?php echo $nombre_producto; ?></span>
+						</td>
+						<td class="col-fabricante">
+							<span class="text-muted"><?php echo $fabricante;?></span>
+						</td>
+						<td class="col-estado">
+							<span class="badge <?php echo ($status_producto==1) ? 'badge-aprobada' : 'badge-nula'; ?>">
+								<?php echo $estado;?>
+							</span>
+						</td>
+						<td class="col-fecha">
+							<span class="text-muted small">
+								<i class="mdi mdi-calendar me-1"></i><?php echo $date_added;?>
+							</span>
+						</td>
+						<td class="col-precio">
+							<span class="fw-bold text-corporate-primary">
+								<?php echo $moneda;?> <?php echo number_format($precio_producto,$decimals,$decimal_separator,$thousand_separator);?>
+							</span>
+						</td>
 					<?php 
 						if ($permisos_editar==1 or $permisos_eliminar==1){
 					?>
-					<td class='text-right'>
-					<?php if ($permisos_editar==1){?>
-					<button type="button" class='btn btn-success' title='Agregar a cotización' onclick="agregar_cotizacion('<?php echo $id_producto;?>');" ><i class="fa fa-shopping-cart"></i></button> 
-					<a href="#" class='btn btn-info' title='Editar producto' onclick="obtener_datos('<?php echo $id_producto;?>');" data-toggle="modal" data-target="#editModalProduct"><i class="fa fa-edit"></i></a> 
-					<?php }
-						if ($permisos_eliminar==1){
-					?>
-					<a href="#" class='btn btn-danger' title='Borrar producto' onclick="eliminar('<?php echo $id_producto; ?>')"><i class="fa fa-trash"></i> </a>
-					<?php }?>
+					<td class="col-acciones">
+						<div class="btn-group" role="group">
+						<?php if ($permisos_editar==1){?>
+						<button type="button" class="btn btn-success btn-sm" title="Agregar a cotización" onclick="agregar_cotizacion('<?php echo $id_producto;?>');">
+							<i class="mdi mdi-cart-plus"></i>
+						</button> 
+						<button type="button" class="btn btn-info btn-sm" title="Editar producto" onclick="obtener_datos('<?php echo $id_producto;?>');" data-toggle="modal" data-target="#editModalProduct">
+							<i class="mdi mdi-pencil"></i>
+						</button> 
+						<?php }
+							if ($permisos_eliminar==1){
+						?>
+						<button type="button" class="btn btn-danger btn-sm" title="Borrar producto" onclick="eliminar('<?php echo $id_producto; ?>')">
+							<i class="mdi mdi-delete"></i>
+						</button>
+						<?php }?>
+						</div>
 					</td>
 					<?php }?>	
 					</tr>
 					<?php
 				}
 				?>
-				
+				</tbody>
 			  </table>
-				<div class="float-right">
-					<?php  echo paginate($reload, $page, $total_pages, $adjacents);	?>
+				<div class="table-pagination">
+					<div class="float-right">
+						<?php  echo paginate($reload, $page, $total_pages, $adjacents);	?>
+					</div>
 				</div>
 			</div>
 			<?php

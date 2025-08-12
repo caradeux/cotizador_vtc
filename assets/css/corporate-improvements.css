@@ -149,47 +149,256 @@ Estilos complementarios para un diseño más profesional
 }
 
 /* ============================================================== */
-/* TABLAS CORPORATIVAS MEJORADAS */
+/* TABLAS CORPORATIVAS PROFESIONALES - DISEÑO MEJORADO */
 /* ============================================================== */
 
+/* Container principal de la tabla */
 .table-responsive {
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    margin: 1.5rem 0;
+    border: 1px solid #e2e8f0;
 }
 
+/* Tabla principal */
 .table {
     background: #ffffff;
     margin-bottom: 0;
-}
-
-.table thead th {
-    background: #f8fafc !important;
-    color: #1e293b !important;
-    font-weight: 600;
-    border-bottom: 2px solid #e2e8f0;
-    padding: 1rem;
+    width: 100%;
     font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
+/* Headers de la tabla */
+.table thead th {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+    color: #1e293b !important;
+    font-weight: 700;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 1.25rem 1rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-right: 1px solid #f1f5f9;
+}
+
+.table thead th:last-child {
+    border-right: none;
+}
+
+/* Filas del cuerpo de la tabla */
 .table tbody tr {
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-bottom: 1px solid #f1f5f9;
+    background: #ffffff;
 }
 
 .table tbody tr:hover {
-    background-color: #f8fafc !important;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
     border-left: 4px solid #1e3a8a !important;
-    transform: translateX(2px);
+    transform: translateX(3px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
+/* Celdas del cuerpo */
 .table tbody td {
     padding: 1rem;
     color: #475569;
     font-weight: 500;
     vertical-align: middle;
+    border-right: 1px solid #f8fafc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+.table tbody td:last-child {
+    border-right: none;
+}
+
+/* Estilos específicos para diferentes tipos de contenido */
+.table tbody td.text-center {
+    text-align: center;
+}
+
+.table tbody td.text-right {
+    text-align: right;
+}
+
+/* Números y montos */
+.table tbody td[class*="money"],
+.table tbody td[class*="amount"],
+.table tbody td[class*="price"] {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 600;
+    color: #1e3a8a;
+    text-align: right;
+}
+
+/* Estados y badges */
+.table tbody td .badge,
+.table tbody td .label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Botones de acción en tablas */
+.table tbody td .btn {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    margin: 0 0.125rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.table tbody td .btn-group .btn {
+    margin: 0;
+}
+
+/* Mejoras para campos de búsqueda y filtros */
+.table-filters {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.table-filters .form-control {
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+}
+
+.table-filters .btn {
+    padding: 0.625rem 1.25rem;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+/* Paginación mejorada para tablas */
+.table-pagination {
+    background: #f8fafc;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: between;
+    align-items: center;
+}
+
+/* Estilos específicos para diferentes estados */
+.table tbody tr.table-success {
+    background-color: rgba(5, 150, 105, 0.05) !important;
+    border-left: 4px solid #059669 !important;
+}
+
+.table tbody tr.table-warning {
+    background-color: rgba(217, 119, 6, 0.05) !important;
+    border-left: 4px solid #d97706 !important;
+}
+
+.table tbody tr.table-danger {
+    background-color: rgba(220, 38, 38, 0.05) !important;
+    border-left: 4px solid #dc2626 !important;
+}
+
+.table tbody tr.table-info {
+    background-color: rgba(8, 145, 178, 0.05) !important;
+    border-left: 4px solid #0891b2 !important;
+}
+
+/* Mejoras para tablas con muchas columnas */
+.table-wide {
+    min-width: 1200px;
+}
+
+.table-wide thead th {
+    min-width: 120px;
+}
+
+.table-wide tbody td {
+    min-width: 120px;
+    max-width: 250px;
+}
+
+/* Columnas específicas */
+.table .col-id {
+    width: 80px;
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+    font-weight: 700;
+    color: #1e3a8a;
+}
+
+.table .col-date {
+    width: 120px;
+    min-width: 120px;
+    max-width: 120px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+}
+
+.table .col-status {
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    text-align: center;
+}
+
+.table .col-actions {
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    text-align: center;
+}
+
+.table .col-amount {
+    width: 120px;
+    min-width: 120px;
+    max-width: 120px;
+    text-align: right;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 600;
+}
+
+/* Responsive para tablas */
+@media (max-width: 1200px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+    
+    .table {
+        min-width: 1000px;
+    }
+}
+
+@media (max-width: 768px) {
+    .table thead th,
+    .table tbody td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .table-filters {
+        padding: 1rem;
+    }
+    
+    .table-filters .form-control {
+        margin-bottom: 0.5rem;
+    }
 }
 
 /* ============================================================== */
@@ -432,6 +641,270 @@ Estilos complementarios para un diseño más profesional
 }
 
 /* ============================================================== */
+/* LAYOUT MEJORADO PARA MEJOR APROVECHAMIENTO DEL ESPACIO */
+/* ============================================================== */
+
+/* Container principal más ancho */
+.container-fluid {
+    max-width: 1400px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Page wrapper con mejor espaciado */
+.page-wrapper {
+    padding: 1rem 0;
+}
+
+/* Contenido principal más ancho */
+.page-wrapper .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Cards con mejor aprovechamiento del espacio */
+.card {
+    margin-bottom: 1.5rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Títulos de página más compactos */
+.page-titles {
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Mejoras específicas para páginas con tablas */
+.table-page .container-fluid {
+    max-width: 1600px;
+}
+
+.table-page .page-wrapper {
+    padding: 0.5rem 0;
+}
+
+.table-page .page-titles {
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+/* Filtros de búsqueda más compactos */
+.search-filters {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.search-filters .row {
+    align-items: end;
+}
+
+.search-filters .form-group {
+    margin-bottom: 0.75rem;
+}
+
+.search-filters .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.search-filters label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.375rem;
+}
+
+.search-filters .form-control {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    height: auto;
+}
+
+.search-filters .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    height: auto;
+}
+
+/* ============================================================== */
+/* MEJORAS ESPECÍFICAS PARA PRODUCTOS */
+/* ============================================================== */
+
+/* Tabla de productos con columnas optimizadas */
+.productos-table .table {
+    font-size: 0.875rem;
+}
+
+.productos-table .table thead th {
+    padding: 1rem 0.75rem;
+    font-size: 0.75rem;
+}
+
+.productos-table .table tbody td {
+    padding: 0.875rem 0.75rem;
+}
+
+/* Columnas específicas para productos */
+.productos-table .col-codigo {
+    width: 100px;
+    min-width: 100px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.productos-table .col-modelo {
+    width: 120px;
+    min-width: 120px;
+}
+
+.productos-table .col-producto {
+    width: 250px;
+    min-width: 250px;
+}
+
+.productos-table .col-fabricante {
+    width: 150px;
+    min-width: 150px;
+}
+
+.productos-table .col-estado {
+    width: 100px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.productos-table .col-fecha {
+    width: 120px;
+    min-width: 120px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+}
+
+.productos-table .col-precio {
+    width: 120px;
+    min-width: 120px;
+    text-align: right;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 600;
+    color: #1e3a8a;
+}
+
+.productos-table .col-acciones {
+    width: 140px;
+    min-width: 140px;
+    text-align: center;
+}
+
+/* ============================================================== */
+/* MEJORAS ESPECÍFICAS PARA COTIZACIONES */
+/* ============================================================== */
+
+/* Tabla de cotizaciones con columnas optimizadas */
+.cotizaciones-table .table {
+    font-size: 0.85rem;
+}
+
+.cotizaciones-table .table thead th {
+    padding: 1rem 0.75rem;
+    font-size: 0.75rem;
+}
+
+.cotizaciones-table .table tbody td {
+    padding: 0.875rem 0.75rem;
+}
+
+/* Columnas específicas para cotizaciones */
+.cotizaciones-table .col-numero {
+    width: 80px;
+    min-width: 80px;
+    text-align: center;
+    font-weight: 700;
+    color: #1e3a8a;
+}
+
+.cotizaciones-table .col-fecha {
+    width: 100px;
+    min-width: 100px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+}
+
+.cotizaciones-table .col-contacto {
+    width: 180px;
+    min-width: 180px;
+}
+
+.cotizaciones-table .col-cliente {
+    width: 200px;
+    min-width: 200px;
+}
+
+.cotizaciones-table .col-vendedor {
+    width: 120px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.cotizaciones-table .col-estado {
+    width: 100px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.cotizaciones-table .col-neto,
+.cotizaciones-table .col-iva,
+.cotizaciones-table .col-total {
+    width: 110px;
+    min-width: 110px;
+    text-align: right;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 600;
+    color: #1e3a8a;
+}
+
+.cotizaciones-table .col-acciones {
+    width: 80px;
+    min-width: 80px;
+    text-align: center;
+}
+
+/* Estados de cotizaciones */
+.badge-estado {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-nula {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.badge-pendiente {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.badge-aprobada {
+    background-color: #d1fae5;
+    color: #059669;
+}
+
+.badge-rechazada {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+/* ============================================================== */
 /* UTILIDADES CORPORATIVAS */
 /* ============================================================== */
 
@@ -458,4 +931,25 @@ Estilos complementarios para un diseño más profesional
 
 .shadow-corporate-lg {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Utilidades de espaciado */
+.compact-spacing {
+    margin-bottom: 1rem !important;
+}
+
+.wide-content {
+    max-width: 1600px !important;
+    margin: 0 auto;
+}
+
+/* Mejoras para pantallas grandes */
+@media (min-width: 1400px) {
+    .container-fluid {
+        max-width: 1600px;
+    }
+    
+    .table-page .container-fluid {
+        max-width: 1800px;
+    }
 }

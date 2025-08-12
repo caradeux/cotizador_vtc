@@ -98,23 +98,23 @@
 			 
 			
 			?>
-			<div class="table-responsive">
-			  <table class="table table-hover">
-				<thead class="table-light">
+			<div class="table-responsive cotizaciones-table">
+			  <table class="table table-hover table-wide">
+				<thead>
 					<tr>
-						<th scope="col">#</th>
-						<th scope="col">Fecha</th>
-						<th scope="col">Contacto</th>
-						<th scope="col">Cliente</th>
-						<th scope="col">Vendedor</th>
-						<th scope="col">Estado</th>
-						<th scope="col" class="text-end">Neto</th>
-						<th scope="col" class="text-end">IVA</th>
-						<th scope="col" class="text-end">Total</th>
+						<th scope="col" class="col-numero">#</th>
+						<th scope="col" class="col-fecha">FECHA</th>
+						<th scope="col" class="col-contacto">CONTACTO</th>
+						<th scope="col" class="col-cliente">CLIENTE</th>
+						<th scope="col" class="col-vendedor">VENDEDOR</th>
+						<th scope="col" class="col-estado">ESTADO</th>
+						<th scope="col" class="col-neto">NETO</th>
+						<th scope="col" class="col-iva">IVA</th>
+						<th scope="col" class="col-total">TOTAL</th>
 						<?php 
 							if ($permisos_editar==1 or $permisos_eliminar==1){
 						?>
-						<th scope="col" class="text-center">Acciones</th>
+						<th scope="col" class="col-acciones">ACCIONES</th>
 						<?php  }?>
 					</tr>
 				</thead>
@@ -155,85 +155,92 @@
 						
 					?>
 					<tr>
-						<td>
-							<strong class="text-primary"><?php echo $numero_cotizacion; ?></strong>
+						<td class="col-numero">
+							<strong class="text-corporate-primary"><?php echo $numero_cotizacion; ?></strong>
 						</td>
-						<td>
-							<span class="badge bg-light text-dark">
-								<i class="fa fa-calendar me-1"></i><?php echo $fecha; ?>
+						<td class="col-fecha">
+							<span class="text-muted">
+								<i class="mdi mdi-calendar me-1"></i><?php echo $fecha; ?>
 							</span>
 						</td>
-						<td>
-							<div class="quote-info">
-								<strong class="d-block"><?php echo $nombre_contact; ?></strong>
+						<td class="col-contacto">
+							<div class="contact-info">
+								<div class="fw-bold text-dark"><?php echo $nombre_contact; ?></div>
 								<?php if (!empty($telefono_contact)){?>
-								<small class="text-muted d-block">
-									<i class="fa fa-phone me-1"></i><?php echo $telefono_contact;?>
-								</small>
+								<div class="text-muted small">
+									<i class="mdi mdi-phone me-1"></i><?php echo $telefono_contact;?>
+								</div>
 								<?php }?>
 								<?php if (!empty($email_contact)){?>
-								<small class="text-muted d-block">
-									<i class="fa fa-envelope me-1"></i><?php echo $email_contact;?>
-								</small>
+								<div class="text-muted small">
+									<i class="mdi mdi-email me-1"></i><?php echo $email_contact;?>
+								</div>
 								<?php }?>
 							</div>
 						</td>
-						<td>
-							<div class="quote-info">
-								<strong class="d-block"><?php echo $nombre_cliente; ?></strong>
+						<td class="col-cliente">
+							<div class="client-info">
+								<div class="fw-bold text-dark"><?php echo $nombre_cliente; ?></div>
 								<?php if (!empty($empresa)){?>
-								<small class="text-muted d-block"><?php echo $empresa;?></small>
+								<div class="text-muted small"><?php echo $empresa;?></div>
 								<?php }?>
 								<?php if (!empty($tel2)){?>
-								<small class="text-muted d-block">
-									<i class="fa fa-phone me-1"></i><?php echo $tel2;?>
-								</small>
+								<div class="text-muted small">
+									<i class="mdi mdi-phone me-1"></i><?php echo $tel2;?>
+								</div>
 								<?php }?>
 								<?php if (!empty($email)){?>
-								<small class="text-muted d-block">
-									<i class="fa fa-envelope me-1"></i><?php echo $email;?>
-								</small>
+								<div class="text-muted small">
+									<i class="mdi mdi-email me-1"></i><?php echo $email;?>
+								</div>
 								<?php }?>
 							</div>
 						</td>
-						<td>
-							<span class="badge bg-info"><?php echo $vendedor;?></span>
+						<td class="col-vendedor">
+							<span class="badge bg-corporate-primary"><?php echo $vendedor;?></span>
 						</td>
-						<td>
-							<span class="badge <?php echo $label;?>"><?php echo $estado;?></span>
+						<td class="col-estado">
+							<span class="badge-estado <?php 
+								if ($status==0) echo 'badge-pendiente';
+								else if ($status==1) echo 'badge-aprobada';
+								else if ($status==2) echo 'badge-pendiente';
+								else if ($status==3) echo 'badge-aprobada';
+								else if ($status==4) echo 'badge-nula';
+								else echo 'badge-pendiente';
+							?>"><?php echo $estado;?></span>
 						</td>
-						<td class="text-end">
-							<strong><?php echo $symbol;?> <?php echo number_format($total_neto,$decimals,$decimal_separator,$thousand_separator);?></strong>
+						<td class="col-neto">
+							<span class="fw-bold text-dark"><?php echo $symbol;?> <?php echo number_format($total_neto,$decimals,$decimal_separator,$thousand_separator);?></span>
 						</td>
-						<td class="text-end">
-							<strong><?php echo $symbol;?> <?php echo number_format($total_iva,$decimals,$decimal_separator,$thousand_separator);?></strong>
+						<td class="col-iva">
+							<span class="fw-bold text-muted"><?php echo $symbol;?> <?php echo number_format($total_iva,$decimals,$decimal_separator,$thousand_separator);?></span>
 						</td>
-						<td class="text-end">
-							<strong class="text-primary"><?php echo $symbol;?> <?php echo number_format($monto_total,$decimals,$decimal_separator,$thousand_separator);?></strong>
+						<td class="col-total">
+							<span class="fw-bold text-corporate-primary"><?php echo $symbol;?> <?php echo number_format($monto_total,$decimals,$decimal_separator,$thousand_separator);?></span>
 						</td>
 					<?php 
 						if ($permisos_editar==1 or $permisos_eliminar==1){
 					?>	
-                    <td class="text-center">
-                        <div class="dropdown dropleft">
-                            <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="dropdownMenuButton<?php echo $numero_cotizacion; ?>" data-toggle="dropdown" aria-expanded="false">
-								<i class="fa fa-cog"></i>
+                    <td class="col-acciones">
+                        <div class="dropdown">
+                            <button class="btn btn-light btn-sm dropdown-toggle shadow-sm" type="button" id="dropdownMenuButton<?php echo $numero_cotizacion; ?>" data-toggle="dropdown" aria-expanded="false">
+								<i class="mdi mdi-dots-vertical"></i>
 							</button>
-                            <ul class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="dropdownMenuButton<?php echo $numero_cotizacion; ?>">
+                            <ul class="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="dropdownMenuButton<?php echo $numero_cotizacion; ?>">
 								<?php if ($permisos_editar==1){?>
 								<li>
 									<a class="dropdown-item" href="editar_cotizacion.php?id=<?php echo $numero_cotizacion;?>" title="Editar cotización">
-										<i class="fa fa-edit me-2"></i>Editar
+										<i class="mdi mdi-pencil me-2 text-primary"></i>Editar
 									</a>
 								</li>
 								<li>
 									<a class="dropdown-item" href="#" title="Imprimir cotización" onclick="descargar('<?php echo $id_cotizacion;?>');">
-										<i class="fa fa-print me-2"></i>Imprimir
+										<i class="mdi mdi-printer me-2 text-info"></i>Imprimir
 									</a>
 								</li>
                                 <li>
                                     <a class="dropdown-item" href="#" title="Enviar cotización" data-toggle="modal" data-target="#myModal" data-number="<?php echo $id_cotizacion;?>" data-email="<?php echo $email;?>">
-										<i class="fa fa-envelope me-2"></i>Enviar Email
+										<i class="mdi mdi-email-send me-2 text-success"></i>Enviar Email
 									</a>
 								</li>
 								<?php }
@@ -242,7 +249,7 @@
 								<li><hr class="dropdown-divider"></li>
 								<li>
 									<a class="dropdown-item text-danger" href="#" title="Borrar cotización" onclick="eliminar('<?php echo $numero_cotizacion; ?>')">
-										<i class="fa fa-trash me-2"></i>Eliminar
+										<i class="mdi mdi-delete me-2"></i>Eliminar
 									</a>
 								</li>
 								<?php }?>
